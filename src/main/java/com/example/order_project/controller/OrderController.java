@@ -100,7 +100,7 @@ public class OrderController {
     }
 
     //交给ai通过feedback设定工作量
-    @PostMapping("/{orderId}/feedback")
+    @PostMapping("/{orderId}/feedbacks")
     public ResponseEntity<Void> submitFeedback(@PathVariable Long orderId) {
         Order order = orderService.getOrderDetails(orderId);
         if (order != null) {

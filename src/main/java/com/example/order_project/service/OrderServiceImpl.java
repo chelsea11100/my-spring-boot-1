@@ -54,7 +54,7 @@ public class OrderServiceImpl implements OrderService {
     //查询历史订单、查看订单详情、取消订单的请求
     @Override
     public List<Order> getOrderHistory(Long userId) {
-        return orderRepository.findByUser_IdAndStatusNotEquals(userId, "已取消");
+        return orderRepository.findByUser_IdAndStatusNot(userId, "已取消");
     }
 
     @Override
@@ -75,7 +75,7 @@ public class OrderServiceImpl implements OrderService {
                 }
             } else if ("ADMIN".equals(role)) {
                 //定义的是id相同就是订单相同（但好像不太合理，再说吧）
-                boolean isDuplicateOrder = orderRepository.existsByIdAndNotEqualUserId(orderId, userId);
+                boolean isDuplicateOrder = orderRepository.existsByIdAndUserIdNot(orderId, userId);
                 if (isDuplicateOrder) {
                     existingOrder.setStatus("已取消");
                     orderRepository.save(existingOrder);
