@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PerformanceService {
     // 绩效评估
-    PerformanceRecord evaluatePerformance(Order orderId, Double workload);
+    PerformanceRecord evaluateWorkload(Order orderId);
 
     // 查询绩效记录
     List<PerformanceRecord> getPerformanceRecordsByStaffId(Long staffId);

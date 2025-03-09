@@ -21,12 +21,16 @@ public interface OrderService {
     // 统计订单
     List<Order> getOrdersByStatus(String status);
 
+    //查询历史订单、查看订单详情、取消订单的请求
+    List<Order> getOrderHistory(Long userId);
+    Order getOrderDetails(Long orderId);
+    boolean cancelOrder(Long orderId, Long userId,String role);
+
     // 订单申诉处理
     void handleOrderAppeal(Long orderId, String appealReason);
 
     // AI自动派单
     void autoAssignOrder(Order order);
 
-
-    void deleteOrder(Long orderId);
+    void submitOrderFeedback(Long orderId, String feedback, String result);
 }

@@ -16,4 +16,8 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     // 根据订单状态查询订单，用于管理员查看特定状态的订单
     List<Order> findByStatus(String status);
+
+    List<Order> findByUser_IdAndStatusNotEquals(Long userId, String cancelled);
+
+    boolean existsByIdAndNotEqualUserId(Long orderId, Long userId);
 }

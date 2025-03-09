@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "performance_records")//绩效数据库（未建立）
+@Table(name = "performance_records")
 public class PerformanceRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
